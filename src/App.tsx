@@ -17,7 +17,7 @@ function App() {
           I'm Jordan, a Calgary based junior front-end web developer with over 3 years of experience
           in Reactjs & TypeScript.
           <br />I enjoy working with a team and pushing the limits of what can be done. I focus my
-          sites on accessibility and ease of use. theres no need to make a site too complicated.
+          sites on accessibility and ease of use. there's no need to make a site too complicated.
         </h1>
         <img className="self-image" src={me} alt="jordan image" />
         <div className="links">
@@ -28,6 +28,7 @@ function App() {
         </div>
       </div>
       <div className="container">
+        <header>Some of my projects:</header>
         {Object.entries(data).map((project, i) => (
           <ProjectInfo
             projectImage={images[i]}

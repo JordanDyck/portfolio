@@ -1,12 +1,11 @@
 const data = {
   My_DnD: {
     info: [
-      `My biggest project. Made with Reactjs.`,
+      `My biggest project.`,
       `An interactive Dungeons & Dragons character sheet that allows users to create and manage their characters,
-    track stats, abilities, levels, inventory, and export them to share on other devices.
-    you can use premade classes/races, or create your own custom character.`,
-      `I spent over 2 years trying to make the easiest to use character sheet I could. no confusing menus, easy to read descriptions.`,
-      `And its 90% automated.`,
+      track stats, abilities, levels, inventory, and export them to share on other devices.
+      you can use premade classes/races, or create your own custom character.`,
+      `I spent over 2 years trying to make the easiest to use character sheet I could. no confusing menus and easy to read descriptions.`,
     ],
     url: "https://jordandyck.github.io/My-DnD/",
   },
