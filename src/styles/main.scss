@@ -12,6 +12,7 @@ $mobile: 1070px;
 }
 body {
   background: #0a192f;
+
   margin: 10px;
 }
 .App {
@@ -23,38 +24,89 @@ body {
     font-size: 30px;
     color: $textColor;
   }
-
+  span {
+    text-decoration: underline;
+    white-space: nowrap;
+  }
   .welcome {
-    display: grid;
-    grid-template-columns: 80% 20%;
+    display: flex;
+    flex-direction: column;
 
     width: 85vw;
     margin: 50px auto 0;
 
-    align-items: center;
     color: $textColor;
 
     border-radius: 15px;
     padding: 15px;
     background-color: #001f4d;
     animation: fadeIn 1.5s ease-in-out;
+    @media (max-width: $mobile) {
+      margin: 175px auto 0;
+      animation: none;
+    }
 
     .self-image {
+      position: absolute;
       width: 150px;
-
+      align-self: self-end;
       border: 2px solid black;
-      margin: auto;
+
       border-radius: 75px;
-      -webkit-transform: scaleX(-1);
-      -moz-transform: scaleX(-1);
-      -o-transform: scaleX(-1);
-      transform: scaleX(-1);
+
+      @media (max-width: $mobile) {
+        top: 162px;
+        right: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
     .intro-text {
-      font-family: $bodyFont;
-      font-size: 25px;
+      margin-right: 150px;
       @media (max-width: $mobile) {
-        font-size: 15px;
+        margin-right: 0;
+      }
+      h1 {
+        font-family: $bodyFont;
+        font-size: 25px;
+        margin-block: 15px;
+      }
+
+      .name {
+        font-size: 38px;
+        text-decoration: underline;
+        color: #939393;
+      }
+      .carreer {
+        margin-left: 15px;
+        font-size: 30px;
+        color: #00fa9a;
+        span {
+          animation: color-change 3s ease-in infinite;
+          &::before,
+          &::after {
+            content: "⁜";
+
+            vertical-align: super;
+          }
+        }
+      }
+      .experience {
+        margin-left: 40px;
+        font-size: 30px;
+        color: #f8ff00;
+      }
+      .about {
+        margin-left: 30px;
+        font-weight: 400;
+      }
+      @media (max-width: $mobile) {
+        .name,
+        .carreer,
+        .experience,
+        .about {
+          font-size: 20px;
+        }
       }
     }
     .links {
@@ -85,18 +137,19 @@ body {
         text-decoration: underline;
       }
     }
-    @media (max-width: $mobile) {
-      font-size: 15px;
-    }
   }
   .container {
     margin: 20px 13px 0;
+    .projects-header {
+      border-bottom: 1px solid;
+    }
     .project-info-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
       justify-items: end;
       margin-top: 15px;
+      animation: fadeInOpacity 2.5s ease-in-out;
 
       @media (max-width: $mobile) {
         grid-template-columns: repeat(1, 1fr);
@@ -106,6 +159,8 @@ body {
 
       .info {
         position: relative;
+        display: flex;
+        flex-direction: column;
         font-size: 25px;
         font-family: $bodyFont;
         color: $textColor;
@@ -118,11 +173,14 @@ body {
         }
         p {
           padding-block: 10px;
+          span {
+            font-weight: bold;
+          }
         }
         @media (max-width: $mobile) {
           margin-block: 10px;
-          font-size: 15px;
-          grid-row-start: 1;
+
+          grid-row-start: 2;
         }
         // for info border
         $size: 90px;
@@ -160,6 +218,9 @@ body {
       }
       a {
         grid-row-start: 2;
+        @media (max-width: $mobile) {
+          grid-row-start: 1;
+        }
       }
       .project-image {
         width: 790px;
@@ -167,11 +228,10 @@ body {
         height: auto;
         max-height: 100%;
         border: 2px solid;
-
-        cursor: pointer;
         box-shadow: 0px 0px 19px 4px;
         -webkit-box-shadow: 0px 0px 19px 4px;
         transition: transform 0.1s;
+        cursor: pointer;
         &:hover {
           transform: scale(1.03);
         }
@@ -186,6 +246,31 @@ body {
     transform: translateX(200px);
   }
   to {
+    opacity: 1;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: red;
+  }
+  25% {
+    color: yellow;
+  }
+
+  75% {
+    color: green;
+  }
+  100% {
+    color: red;
+  }
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
