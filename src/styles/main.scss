@@ -179,7 +179,7 @@ body {
         }
         @media (max-width: $mobile) {
           margin-block: 10px;
-
+          font-size: 17px;
           grid-row-start: 2;
         }
         // for info border
@@ -200,12 +200,12 @@ body {
           border-left: $thickness ridge $Bcolor;
           border-radius: 6%;
           box-shadow: -7px -13px 12px 0px #4d4d4d82;
+          -webkit-box-shadow: -7px -13px 12px 0px #4d4d4d82;
         }
         // bottom right
         &::after {
           content: "";
           position: absolute;
-
           bottom: 0;
           right: 0;
           width: $size;
@@ -214,11 +214,13 @@ body {
           border-right: $thickness ridge $Bcolor;
           border-radius: 6%;
           box-shadow: 7px 9px 7px 0px rgba(77, 77, 77, 0.5098039216);
+          -webkit-box-shadow: 7px 9px 7px 0px rgba(77, 77, 77, 0.5098039216);
         }
       }
       a {
         grid-row-start: 2;
         @media (max-width: $mobile) {
+          width: 90%;
           grid-row-start: 1;
         }
       }

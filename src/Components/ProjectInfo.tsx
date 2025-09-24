@@ -28,8 +28,8 @@ const ProjectInfo = () => {
           <p>
             This site makes it easy for new players to get into pokemon as the game does not have a
             way to know the advantages and disadvantages of each pokemon, and looking up the type
-            chart for each pokemon can be confusing and time consuming. Now everything is in one
-            place, making it easy to find the information you need.
+            chart for each pokemon can be confusing and time consuming. With this site, everything
+            is simple to read, with clear visuals.
           </p>
         </div>
         <a

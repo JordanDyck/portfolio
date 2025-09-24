@@ -15,10 +15,9 @@ function App() {
           </h1>
           <h1 className="experience">{`<Over 3 years of experience>`}</h1>
           <h1 className="about">
-            I started programming because I like being able to create something completely from
-            scratch and seeing it all come together. I enjoy working with a team, and learning new &
-            better ways to solve problems. I focus my sites on <span>accessibility</span> and{" "}
-            <span>ease of use</span>.
+            I started programming because I wanted to know how websites work, which quickly grew
+            into a passion for building sites myself. I'm a dedicated problem-solver who enjoys the
+            challenge of transforming ideas into functional, user-friendly web applications.
           </h1>
         </div>
         <div className="links">
