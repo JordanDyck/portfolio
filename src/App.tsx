@@ -16,7 +16,7 @@ function App() {
           <h1 className="experience">{`<Over 3 years of experience>`}</h1>
           <h1 className="about">
             I started programming because I wanted to know how websites work, which quickly grew
-            into a passion for building sites myself. I'm a <span>dedicated problem-solver</span>{" "}
+            into a passion for building sites myself. I'm a dedicated <span>problem-solver</span>{" "}
             who enjoys the challenge of transforming ideas into functional, user-friendly web
             applications.
           </h1>

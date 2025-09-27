@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Tinos&display=swap");
 
 $headerFont: "Playfair Display SC", sans-serif;
 $bodyFont: "Source Code Pro", monospace;
+$aboutFont: "tinos", serif;
 $textColor: #ccd6f6;
 $mobile: 1070px;
 
@@ -100,6 +100,7 @@ body {
       .about {
         margin-left: 30px;
         font-weight: 400;
+        font-family: $aboutFont;
       }
       @media (max-width: $mobile) {
         .name,
@@ -143,6 +144,9 @@ body {
     margin: 20px 13px 0;
     .projects-header {
       border-bottom: 1px solid;
+      @media (max-width: $mobile) {
+        font-size: 27px;
+      }
     }
     .project-info-container {
       display: grid;
@@ -246,7 +250,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateX(200px);
+    transform: translateY(-200px);
   }
   to {
     opacity: 1;
