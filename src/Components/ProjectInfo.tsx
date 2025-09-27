@@ -13,7 +13,7 @@ const ProjectInfo = () => {
             their characters, track <span>stats</span>, <span>abilities</span>, <span>levels</span>,{" "}
             <span>inventory</span>, and export them to share on other devices. you can use premade
             classes/races, or create your own custom character. I spent over 2 years trying to make
-            the easiest to use character manager I could. no confusing menus and easy to read
+            the most user friendly character manager I could. no confusing menus and easy to read
             descriptions.
           </p>
         </div>
@@ -29,7 +29,7 @@ const ProjectInfo = () => {
             This site makes it easy for new players to get into pokemon as the game does not have a
             way to know the advantages and disadvantages of each pokemon, and looking up the type
             chart for each pokemon can be confusing and time consuming. With this site, everything
-            is simple to read, with clear visuals.
+            is <span>simple to read</span>, with <span>clear visuals</span>.
           </p>
         </div>
         <a
@@ -44,9 +44,9 @@ const ProjectInfo = () => {
         <div className="info">
           <h1>CSS Generator</h1>
           <p>
-            A css generator that allows new programers to see the differents between padding,
-            margin, and border. you can also use it to generate a box-shadow and copy the code to
-            your own project.
+            A css generator that allows new programers to see the differents between{" "}
+            <span>padding</span>,<span> margin</span>, and <span>border</span>. you can also use it
+            to generate a box-shadow and copy the code to your own project.
           </p>
         </div>
         <a
