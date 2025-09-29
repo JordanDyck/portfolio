@@ -43,7 +43,7 @@ body {
     background-color: #001f4d;
     animation: fadeIn 1.5s ease-in-out;
     @media (max-width: $mobile) {
-      margin: 175px auto 0;
+      margin: 190px auto 0;
       animation: none;
     }
 
@@ -56,7 +56,7 @@ body {
       border-radius: 75px;
 
       @media (max-width: $mobile) {
-        top: 162px;
+        top: 172px;
         right: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -86,9 +86,10 @@ body {
           animation: color-change 3s ease-in infinite;
           &::before,
           &::after {
-            content: "⁜";
-
-            vertical-align: super;
+            @media (min-width: $mobile) {
+              content: "⁜";
+              vertical-align: super;
+            }
           }
         }
       }
@@ -105,9 +106,13 @@ body {
       @media (max-width: $mobile) {
         .name,
         .carreer,
-        .experience,
+        .experience {
+          font-size: 17px;
+          margin-left: 0;
+        }
         .about {
           font-size: 20px;
+          margin-left: 0;
         }
       }
     }
@@ -118,6 +123,7 @@ body {
       @media (max-width: $mobile) {
         flex-direction: column;
         margin-top: 20px;
+        gap: 20px;
       }
       .github-btn {
         justify-self: start;
