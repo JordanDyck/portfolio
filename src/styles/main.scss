@@ -3,7 +3,7 @@
 $headerFont: "Playfair Display SC", sans-serif;
 $bodyFont: "Source Code Pro", monospace;
 $aboutFont: "tinos", serif;
-$textColor: #ccd6f6;
+$textColor: #222e53;
 $mobile: 1070px;
 
 * {
@@ -11,7 +11,8 @@ $mobile: 1070px;
   margin: 0;
 }
 body {
-  background: #0a192f;
+  // background: #0a192f;
+  background: #ddf7ff;
 
   margin: 10px;
 }
@@ -23,6 +24,7 @@ body {
     font-family: $headerFont;
     font-size: 30px;
     color: $textColor;
+    animation: fadeInOpacity 1.5s ease-in-out;
   }
   span {
     text-decoration: underline;
@@ -32,13 +34,11 @@ body {
   .welcome {
     display: flex;
     flex-direction: column;
-
     width: 85vw;
     margin: 50px auto 0;
-
     color: $textColor;
-
     border-radius: 15px;
+    box-shadow: -1px 9px 11px 3px rgb(0 0 0 / 59%);
     padding: 15px;
     background-color: #001f4d;
     animation: fadeIn 1.5s ease-in-out;
@@ -78,7 +78,7 @@ body {
         text-decoration: underline;
         color: #939393;
       }
-      .carreer {
+      .career {
         margin-left: 15px;
         font-size: 30px;
         color: #00fa9a;
@@ -102,6 +102,7 @@ body {
         margin-left: 30px;
         font-weight: 400;
         font-family: $aboutFont;
+        color: white;
       }
       @media (max-width: $mobile) {
         .name,
@@ -132,7 +133,7 @@ body {
         width: 100px;
         height: 40px;
         border-radius: 5px;
-        color: $textColor;
+        color: white;
         cursor: pointer;
         transition: transform 0.1s;
         &:hover {
@@ -143,6 +144,7 @@ body {
         font-family: $bodyFont;
         font-weight: bold;
         text-decoration: underline;
+        color: white;
       }
     }
   }
@@ -150,20 +152,27 @@ body {
     margin: 20px 13px 0;
     .projects-header {
       border-bottom: 1px solid;
+      animation: fadeInOpacity 1.5s ease-in-out;
       @media (max-width: $mobile) {
         font-size: 27px;
       }
     }
     .project-info-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      justify-items: end;
-      margin-top: 15px;
-      animation: fadeInOpacity 2.5s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 2.5s ease-in-out;
+      animation-timeline: view();
+      animation-range: entry;
+      width: 85vw;
+      &:not(.my-dnd) {
+        margin-block: 400px;
+      }
+
+      &.my-dnd {
+        margin-block: 100px;
+      }
 
       @media (max-width: $mobile) {
-        grid-template-columns: repeat(1, 1fr);
         justify-items: center;
         margin-block: 6rem;
       }
@@ -175,12 +184,14 @@ body {
         font-size: 25px;
         font-family: $bodyFont;
         color: $textColor;
-        margin-left: 20px;
+        margin-left: 80px;
+        margin-top: 20px;
         padding: 10px 30px;
-        grid-row-start: 2;
+        // width: 100rem;
         h1 {
           font-family: $headerFont;
-          color: white;
+          color: $textColor;
+          text-decoration: underline;
         }
         p {
           padding-block: 10px;
@@ -190,10 +201,11 @@ body {
         }
         @media (max-width: $mobile) {
           margin-block: 10px;
+          width: auto;
+          margin-left: 15px;
           font-size: 17px;
-          grid-row-start: 2;
         }
-        // for info border
+        // for special info border ------------------------------------------------
         $size: 90px;
         $thickness: 10px;
         $Bcolor: rgb(198 183 91);
@@ -227,24 +239,26 @@ body {
           box-shadow: 7px 9px 7px 0px rgba(77, 77, 77, 0.5098039216);
           -webkit-box-shadow: 7px 9px 7px 0px rgba(77, 77, 77, 0.5098039216);
         }
+        // border ^ -------------------------------------------------------
       }
       a {
-        grid-row-start: 2;
+        margin-left: 40px;
+        width: 600px;
         @media (max-width: $mobile) {
-          width: 90%;
-          grid-row-start: 1;
+          // width: 90%;
+          margin-left: 0px;
         }
       }
       .project-image {
-        width: 790px;
-        max-width: 100%;
-        height: auto;
-        max-height: 100%;
+        width: 600px;
         border: 2px solid;
         box-shadow: 0px 0px 19px 4px;
         -webkit-box-shadow: 0px 0px 19px 4px;
         transition: transform 0.1s;
         cursor: pointer;
+        @media (max-width: $mobile) {
+          width: 500px;
+        }
         &:hover {
           transform: scale(1.03);
         }
@@ -256,7 +270,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-200px);
+    transform: translateX(-100vw);
   }
   to {
     opacity: 1;

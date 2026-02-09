@@ -9,11 +9,11 @@ function App() {
       <div className="welcome">
         <img className="self-image" src={me} alt="jordan image" />
         <div className="intro-text">
-          <h1 className="name">{`<I'm JORDAN/>`}</h1>
-          <h1 className="carreer">
+          <h1 className="name">{`<I'm JORDAN!/>`}</h1>
+          <h1 className="career">
             {`<Junior Front-End`} <span>Reactjs/TypeScript</span> {`developer/>`}
           </h1>
-          <h1 className="experience">{`<Over 3 years of experience/>`}</h1>
+          <h1 className="experience">{`<Over 3 years of website making experience/>`}</h1>
           <h1 className="about">
             I started programming because I wanted to know how websites work, which quickly grew
             into a passion for building sites myself. I'm a dedicated <span>problem-solver</span>{" "}

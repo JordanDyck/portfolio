@@ -5,6 +5,9 @@ const ProjectInfo = () => {
   return (
     <>
       <div className="project-info-container my-dnd">
+        <a href={"https://jordandyck.github.io/My-DnD/"} target="_blank" rel="noopener noreferrer">
+          <img className="project-image" src={dnd} alt="project image" />
+        </a>
         <div className="info">
           <h1>My DnD</h1>
           <p>My biggest project.</p>
@@ -17,11 +20,15 @@ const ProjectInfo = () => {
             descriptions.
           </p>
         </div>
-        <a href={"https://jordandyck.github.io/My-DnD/"} target="_blank" rel="noopener noreferrer">
-          <img className="project-image" src={dnd} alt="project image" />
-        </a>
       </div>
       <div className="project-info-container pokebuddy">
+        <a
+          href={"https://jordandyck.github.io/Pokebuddy/"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="project-image" src={pokebuddy} alt="project image" />
+        </a>
         <div className="info">
           <h1>pokebuddy</h1>
           <p>Search and manage your team of pokemon.</p>
@@ -32,15 +39,15 @@ const ProjectInfo = () => {
             is <span>simple to read</span>, with <span>clear visuals</span>.
           </p>
         </div>
+      </div>
+      <div className="project-info-container css-generator">
         <a
-          href={"https://jordandyck.github.io/Pokebuddy/"}
+          href={"https://jordandyck.github.io/CSS-Generator/"}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img className="project-image" src={pokebuddy} alt="project image" />
+          <img className="project-image" src={css_generator} alt="project image" />
         </a>
-      </div>
-      <div className="project-info-container css-generator">
         <div className="info">
           <h1>CSS Generator</h1>
           <p>
@@ -49,13 +56,6 @@ const ProjectInfo = () => {
             to generate a box-shadow and copy the code to your own project.
           </p>
         </div>
-        <a
-          href={"https://jordandyck.github.io/CSS-Generator/"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img className="project-image" src={css_generator} alt="project image" />
-        </a>
       </div>
     </>
   )
