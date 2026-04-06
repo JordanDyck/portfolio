@@ -1,37 +1,124 @@
 import "./styles/main.scss"
-import ProjectInfo from "./Components/ProjectInfo"
-import me from "./assets/me.png"
+
+import {useState} from "react"
+import {projectInfo} from "./Components/ProjectInfo"
+import {AnimatePresence, motion} from "motion/react"
+
+import SlideShowBar from "./Components/SlideShowBar"
+import OverView from "./Components/OverView"
 
 function App() {
+  const [currentProject, setCurrentProject] = useState(-1)
+  const [showWelcome, setShowWelcome] = useState(true)
+  const [direction, setDirection] = useState(0)
+
+  const variants = {
+    initial: (direction: number) => {
+      return {
+        x: direction > 0 ? 300 : -300,
+        opacity: 0,
+      }
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        x: {type: "spring" as const, stiffness: 500, damping: 30},
+        opacity: {duration: 0.2},
+      },
+    },
+    exit: (direction: number) => {
+      return {
+        x: direction > 0 ? -300 : 300,
+        opacity: 0,
+        transition: {
+          x: {type: "spring" as const, stiffness: 500, damping: 30},
+          opacity: {duration: 0.2},
+        },
+      }
+    },
+  }
+
   return (
     <div className="App">
       <header>JORDAN</header>
-      <div className="welcome">
-        <img className="self-image" src={me} alt="jordan image" />
-        <div className="intro-text">
-          <h1 className="name">{`<I'm JORDAN!/>`}</h1>
-          <h1 className="career">
-            {`<Junior Front-End`} <span>Reactjs/TypeScript</span> {`developer/>`}
-          </h1>
-          <h1 className="experience">{`<Over 3 years of website making experience/>`}</h1>
-          <h1 className="about">
-            I started programming because I wanted to know how websites work, which quickly grew
-            into a passion for building sites myself. I'm a dedicated <span>problem-solver</span>{" "}
-            who enjoys the challenge of transforming ideas into functional, user-friendly web
-            applications.
-          </h1>
-        </div>
-        <div className="links">
-          <a href="https://github.com/JordanDyck" target="_blank" rel="noopener noreferrer">
-            <button className="github-btn">GitHub</button>
-          </a>
-          <p className="email">Email: jordandyck777@hotmail.com</p>
-        </div>
-      </div>
+
+      {!showWelcome && <SlideShowBar projectInfo={projectInfo} currentProject={currentProject} />}
       <div className="container">
-        <header className="projects-header">Some of my projects:</header>
-        <ProjectInfo />
+        {!showWelcome && (
+          <button
+            className="project-btn prev"
+            onClick={() => {
+              setCurrentProject((prev) => (prev - 1 + projectInfo.length) % projectInfo.length)
+              setDirection(-1)
+            }}
+          >
+            {"<<"}
+          </button>
+        )}
+        {showWelcome && (
+          <OverView
+            setCurrentProject={setCurrentProject}
+            setShowWelcome={setShowWelcome}
+            setDirection={setDirection}
+          />
+        )}
+
+        <>
+          <AnimatePresence initial={false} mode="popLayout" custom={direction}>
+            {!showWelcome && (
+              <motion.div
+                className={`project-container ${projectInfo[currentProject].name}`}
+                key={projectInfo[currentProject].id}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                custom={direction}
+              >
+                <a
+                  href={projectInfo[currentProject].website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    className="project-image"
+                    src={projectInfo[currentProject].image}
+                    alt="project image"
+                  />
+                </a>
+                <div className="info">
+                  <h3>{projectInfo[currentProject].name}</h3>
+                  {projectInfo[currentProject].description}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+        {!showWelcome && (
+          <button
+            className="project-btn next"
+            onClick={() => {
+              setCurrentProject((prev) => (prev + 1) % projectInfo.length)
+              setShowWelcome(false)
+              setDirection(1)
+            }}
+          >
+            {">>"}
+          </button>
+        )}
       </div>
+      {!showWelcome && (
+        <button
+          className="back-btn"
+          onClick={() => {
+            setShowWelcome(true)
+            setCurrentProject(-1)
+          }}
+        >
+          Back to me!
+        </button>
+      )}
     </div>
   )
 }
